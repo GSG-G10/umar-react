@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffd44a;
+  color: #000;
+  height: 8vh;
+  width: 75%;
+  position: sticky;
+  top: 0;
+}
+.nav {
+  width: 10%;
+}
+.header img {
+  width: 70px;
+  height: 100%;
+}
+.nav li {
+  list-style: none;
+}
