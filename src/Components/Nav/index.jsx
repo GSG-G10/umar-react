@@ -10,7 +10,7 @@ export const Nav = ({ endPoint, endPage }) => (
     ></img>
     <ul className="nav">
       <li>
-        <Link to={endPoint}>{endPage} </Link>
+        <Link className="nav-anch" to={endPoint}>{endPage} </Link>
       </li>
     </ul>
   </div>
