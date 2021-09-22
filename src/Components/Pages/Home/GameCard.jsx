@@ -11,6 +11,20 @@ import { CardActionArea } from "@mui/material";
 export const GameCard = () => {
   const { games } = useContext(GamesContext);
 
+  const addLocal = (id) => {
+    let dataArray = [];
+    const dataObject = id;
+    let oldData = JSON.parse(localStorage.getItem("game"));
+
+    if (oldData !== null) {
+      oldData.push(dataObject);
+      localStorage.setItem("game", JSON.stringify(oldData));
+    } else {
+      dataArray.push(dataObject);
+      localStorage.setItem("game", JSON.stringify(dataArray));
+    }
+  };
+
   return games.map((game) => (
     <Card key={game.id} sx={{ maxWidth: 320 }}>
       <CardActionArea>
@@ -22,7 +36,7 @@ export const GameCard = () => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {game.title} {game.release_date}
+            {game.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {game.short_description}
@@ -30,15 +44,16 @@ export const GameCard = () => {
         </CardContent>
       </CardActionArea>
       <button
+        onClick={() => addLocal(game.id)}
         style={{
-          backgroundColor: "transparent",
           width: "50%",
           height: "3vh",
-          border: "1px solid black",
           cursor: "pointer",
           fontSize: "1rem",
           marginLeft: "1vw",
           marginBottom: "1vh",
+          border: "1px solid black",
+          backgroundColor: "transparent",
         }}
       >
         Add To Favourites

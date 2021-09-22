@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 
 import { GamesContext } from "../../../Context";
 
@@ -8,34 +8,16 @@ import { GameCard } from "./GameCard";
 import "./style.css";
 
 export const Home = () => {
-  const [games, setGames] = useState();
-
-  useEffect(() => {
-    fetch(
-      "https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-          "x-rapidapi-key":
-            "baa590cee7msh0007ba1e5a595c8p182dd2jsn73f820bf50ee",
-        },
-      }
-    )
-      .then((result) => result.json())
-      .then((result) => setGames(result));
-  }, []);
+  const { games } = useContext(GamesContext);
   return (
     <>
       <Nav endPoint="/favourites" endPage="Favourites" />
       {games ? (
-        <GamesContext.Provider value={{ games }}>
-          <div className="results">
-            <GameCard />
-          </div>
-        </GamesContext.Provider>
+        <div className="results">
+          <GameCard />
+        </div>
       ) : (
-        <h1>Loading ... </h1>
+        <img src="https://i.stack.imgur.com/MEBIB.gif"></img>
       )}
     </>
   );
