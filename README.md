@@ -15,6 +15,7 @@
 
 ## Site Description
 Our website let the user to see the latest games and add it to the watch list in his browser .  
+
 ## User Story
 * The user can see all the games on the site .
 * the user can add game to the watch list by clik on the button add to favourites 
