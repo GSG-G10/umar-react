@@ -22,7 +22,7 @@ export const Favourites = () => {
       ) : games ? (
         <h1>There is No Favourites to show</h1>
       ) : (
-        <img src="https://i.stack.imgur.com/MEBIB.gif"></img>
+        <img src="https://i.stack.imgur.com/MEBIB.gif" alt="loading"></img>
       )}
     </>
   );

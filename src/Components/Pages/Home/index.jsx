@@ -17,7 +17,7 @@ export const Home = () => {
           <GameCard />
         </div>
       ) : (
-        <img src="https://i.stack.imgur.com/MEBIB.gif"></img>
+        <img src="https://i.stack.imgur.com/MEBIB.gif" alt="loading"></img>
       )}
     </>
   );
